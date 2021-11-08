@@ -29,15 +29,20 @@ function [score] = evaluateScore(board, myChar)
 end
 
 % helper function for evaluateScore
-function [score] = assignScore(winner, robot)
-    if winner == robot
+function [score] = assignScore(winner, myChar)
+    if winner == myChar
         score = 10; return;
     else
         score = -10; return;
     end
 end
 
-function [best] = minimax(board, depth, myMove, myChar)
+function [best] = minimax(board, depth, isMax, myChar)
+    if myChar == 'X'
+        opponent = 'O';
+    else
+        opponent = 'X';
+    end
     score = evaluateScore(board, myChar);
     % return winner if the game ended
     if score == 10 || score == -10
@@ -45,28 +50,30 @@ function [best] = minimax(board, depth, myMove, myChar)
     % end game if no moves left
     if ~ismember('_', board)
         best = 0; return; end
-    if myMove
+    if isMax
         best = -1000;
         for i = 1:3
             for j = 1:3
                 if board(i, j) == '_'
                     board(i, j) = myChar;
-                    best = max(best, minimax(board, depth + 1, ~myMove, myChar));
+                    best = max(best, minimax(board, depth + 1, ~isMax, myChar));
                     board(i, j) = '_';
                 end
             end
         end
+        return;
     else
         best = 1000;
         for i = 1:3
             for j = 1:3
                 if board(i, j) == '_'
-                    board(i, j) = myChar;
-                    best = min(best, minimax(board, depth + 1, ~myMove, myChar));
+                    board(i, j) = opponent;
+                    best = min(best, minimax(board, depth + 1, ~isMax, myChar));
                     board(i, j) = '_';
                 end
             end
         end
+        return;
     end
 end
 
