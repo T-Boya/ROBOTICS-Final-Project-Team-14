@@ -2,15 +2,13 @@
 
 %% image slicing into cells
 clear all; close all; clc
-img = imread('grid.png');
-img = rgb2gray(img);
+img = getImage('grid.png');
 cell1 = getCell(img, 1, 1);
 imshow(cell1);
 
 %% straightening
 clear all; close all; clc
-img = imread('grid2.jpg');
-img = rgb2gray(img);
+img = getImage('grid2.jpg');
 img = imrotate(img, -25);
 img = straightenGrid(img);
 imshow(img);
@@ -29,8 +27,7 @@ imshow(img);
 
 %% combined
 clear all; close all; clc
-img = imread('grid2.jpg');
-img = rgb2gray(img);
+img = getImage('grid2.jpg');
 img = straightenGrid(img);
 img = removeShadows(img);
 img = removeWhitespace(img);
@@ -40,8 +37,8 @@ figure, imshow(cell3);
 
 %% comparing cell differences
 clear all; close all; clc
-oldImage = imread('grid2.jpg');
-newImage = imread('grid2_modified.jpg');
+oldImage = getImage('grid2.jpg');
+newImage = getImage('grid2_modified.jpg');
 [row, col] = findChangedCell(oldImage, newImage);
 changedCell = getCell(newImage, row, col);
 imshow(changedCell)
@@ -50,16 +47,14 @@ imshow(changedCell)
 clear all; close all; clc
 
 % clean old image
-oldImage = imread('grid2.jpg');
-oldImage = rgb2gray(oldImage);
+oldImage = getImage('grid2.jpg');
 oldImage = straightenGrid(oldImage);
 oldImage = removeShadows(oldImage);
 oldImage = removeWhitespace(oldImage);
 
 
 % clean new image
-newImage = imread('grid2_modified.jpg');
-newImage = rgb2gray(newImage);
+newImage = getImage('grid2_modified.jpg');
 newImage = straightenGrid(newImage);
 newImage = removeShadows(newImage);
 newImage = removeWhitespace(newImage);
