@@ -3,6 +3,7 @@
 %% image slicing into cells
 clear all; close all; clc
 img = imread('grid.png');
+img = rgb2gray(img);
 cell1 = getCell(img, 1, 1);
 imshow(cell1);
 
