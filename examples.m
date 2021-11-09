@@ -1,4 +1,6 @@
 % requires signal processing toolbox
+% tic-tac-toe board MUST be encompassed by border or board detecting code
+% (whitespace removal code) fails
 
 %% image slicing into cells
 clear all; close all; clc
