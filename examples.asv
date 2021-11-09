@@ -70,4 +70,5 @@ if sum([row col]) == 0
 else
     changedCell = getCell(newImage, row, col);
     imshow(changedCell)
+    disp
 end
