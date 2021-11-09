@@ -48,6 +48,7 @@ clear all; close all; clc
 
 % clean old image
 oldImage = getImage('grid2.jpg');
+oldImage = imrotate(oldImage, -25); % rotate image to test straightening
 oldImage = straightenGrid(oldImage);
 oldImage = removeShadows(oldImage);
 oldImage = removeWhitespace(oldImage);
@@ -55,6 +56,7 @@ oldImage = removeWhitespace(oldImage);
 
 % clean new image
 newImage = getImage('grid2_modified.jpg');
+newImage = imrotate(newImage, -25); % rotate image to test straightening
 newImage = straightenGrid(newImage);
 newImage = removeShadows(newImage);
 newImage = removeWhitespace(newImage);
