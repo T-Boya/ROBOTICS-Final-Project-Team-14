@@ -23,7 +23,7 @@ imshow(img)
 
 %% whitespace removal
 clear all; close all; clc
-img = imread('grid2.jpg');
+img = getImage('grid2.jpg');
 img = removeWhitespace(img);
 imshow(img);
 
