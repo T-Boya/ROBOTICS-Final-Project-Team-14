@@ -1,5 +1,5 @@
 % Note: Takes in grayscale images
-% only partially removes shadows at present
+% This only partially removes shadows at present
 
 function [img] = removeShadows(img)
     img = imadjust(img, [0 1], []);
