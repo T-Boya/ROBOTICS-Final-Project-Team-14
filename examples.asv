@@ -10,14 +10,14 @@ imshow(cell1);
 
 %% Straightening an image
 clear all; close all; clc
-img = getImage('(1).jpg');
+img = getImage('grid2.jpg');
 img = imrotate(img, -25);
 img = straightenGrid(img);
 imshow(img);
 
 %% shadow removal (may not be necessary)
 clear all; close all; clc
-img = imread('(1).jpg');
+img = imread('grid2.jpg');
 img = removeShadows(img);
 imshow(img)
 
