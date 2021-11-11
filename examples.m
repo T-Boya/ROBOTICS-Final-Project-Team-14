@@ -5,7 +5,7 @@
 %% image slicing into cells
 clear all; close all; clc
 img = getImage('grid.png');
-cell1 = getCell(img, 1, 1);
+cell1 = getCell(img, 2, 2);
 imshow(cell1);
 
 %% straightening
