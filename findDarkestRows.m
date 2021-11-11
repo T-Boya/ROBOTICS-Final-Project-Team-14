@@ -3,9 +3,9 @@ function [locations] = findDarkestRows(img, rows, k, vertical)
     y = zeros(1, rows);
     for i = 1:rows
         if vertical
-            y(i) = abs(sum(img(:,i)));
+            y(i) = -sum(img(:,i));
         else
-            y(i) = abs(sum(img(i,:)));
+            y(i) = -sum(img(i,:));
         end
     end
     % plot(x, y);
