@@ -2,13 +2,13 @@
 % tic-tac-toe board MUST be encompassed by border or board detecting code
 % (whitespace removal code) fails
 
-%% image slicing into cells
+%% Slicing an image into cells
 clear all; close all; clc
 img = getImage('grid.png');
 cell1 = getCell(img, 2, 2);
 imshow(cell1);
 
-%% straightening
+%% Straightening an image
 clear all; close all; clc
 img = getImage('grid2.jpg');
 img = imrotate(img, -25);
