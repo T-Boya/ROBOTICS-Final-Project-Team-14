@@ -1,22 +1,9 @@
-%% dobot control
-
-%% establish connection
-
-clear all;
-serialportlist("available")'
-arduinoObj = serialport("COM3",9600)
-
-% random angles
-
-low_lim = 10;
-up_lim = 40;
-N = 4; % Number of joints
-
-new_angles = [30;30;30;30]
-
-setdobotangles(new_angles, arduinoObj)
 
 function out = setdobotangles(new_angles, arduinoObj)
+    
+
+    
+    
     isGrab = 0; % No suction
 
     MOVE_MODE_JUMP = 0;
@@ -41,11 +28,9 @@ function out = setdobotangles(new_angles, arduinoObj)
     line_chr_cmd = char(typecast(single(line_float_cmd), 'uint8'));
     % tail_chr = char(hex2dec('5A')); % No need, bcs already specified with configureTerminator command
     line_chr_cmd = [header_chr,line_chr_cmd]; %,tail_chr]
-    line_str_cmd = convertCharsToStrings(line_chr_cmd)
-    writeline(arduinoObj,line_str_cmd)
+    line_str_cmd = convertCharsToStrings(line_chr_cmd);
+    writeline(arduinoObj,line_str_cmd);
 
     pause(1);
-    out = 'good'
+    out = 'good';
 end
-
-
