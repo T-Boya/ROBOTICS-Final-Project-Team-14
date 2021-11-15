@@ -22,9 +22,9 @@ zz=zeros(3,1); ex = [1;0;0]; ey = [0;1;0]; ez = [0;0;1];
 
 %these are rough numbers, need to be calibrated
 L1 = 103;
-L2 = 140;
+L2 = 135;
 L3 = 160;
-L4 = 45;
+L4 = 42.5;
 L5 = 10;
 
 p01=L1*ez;

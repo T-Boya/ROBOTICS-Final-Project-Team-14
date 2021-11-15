@@ -6,13 +6,13 @@ function robot = setdobotposition(robot, pos, arduinoObj)
     
     for i = 1:size(qall,2)
         if 1 ~= inBetween(qall(1,i), robot.J1lim)
-            t = [qall(1,i), robot.J1lim]
+            t = [qall(1,i), robot.J1lim];
             continue
         elseif 1 ~= inBetween(qall(2,i), robot.J2lim)
-            t = [qall(2,i), robot.J2lim]
+            t = [qall(2,i), robot.J2lim];
             continue
         elseif 1 ~= inBetween(qall(3,i), robot.J3lim)
-            t = [qall(2,i), robot.J3lim]
+            t = [qall(2,i), robot.J3lim];
             continue
         end
         robot.q = qall(:,i);
@@ -22,7 +22,8 @@ function robot = setdobotposition(robot, pos, arduinoObj)
     qd = robot.q;
     
     new_angles = q2ang(qd);
-    setdobotangles(new_angles,arduinoObj)
+    
+    setdobotangles(new_angles,arduinoObj);
     
 
 end

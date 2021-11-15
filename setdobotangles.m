@@ -31,6 +31,6 @@ function out = setdobotangles(new_angles, arduinoObj)
     line_str_cmd = convertCharsToStrings(line_chr_cmd);
     writeline(arduinoObj,line_str_cmd);
 
-    pause(1);
+    %pause(1);
     out = 'good';
 end
