@@ -3,11 +3,14 @@ function ang = readdobotangles(arduinoObj)
     flush(arduinoObj);
     line_str = readline(arduinoObj); % MATLAB returns readline as string
     line_str = readline(arduinoObj); % MATLAB returns readline as string
-    line_chr = convertStringsToChars(line_str) % convert the string to char array
+    line_chr = convertStringsToChars(line_str); % convert the string to char array
     % line_hex = dec2hex(line_chr) % Just to see the data as byte values in hex
     %Some assertions to make sure the data is valid
-    assert(line_chr(1) == char(hex2dec('A5'))) % Assertion for header byte
-    assert(length(line_chr) == 41) % Assertion for data length is correct (ie 42 bytes, 1 is removed with end byte while reading the line)
+    %line_chr(1)
+    %char(hex2dec('A5'))
+    assert(line_chr(1) == char(hex2dec('A5'))); % Assertion for header byte
+    length(line_chr);
+    assert(length(line_chr) == 41); % Assertion for data length is correct (ie 42 bytes, 1 is removed with end byte while reading the line)
     %See the float values in the data package
     line_float = typecast(uint8(line_chr(2:end)), 'single'); % obtain the 10 float(single) values in the data package
     %PARSING

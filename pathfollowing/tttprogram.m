@@ -3,7 +3,7 @@
 % clear all
 % 
 % %initalize
-% dobotinit
+%dobotinit
 
 home = [0;10;0];
 pause(1)
@@ -27,4 +27,7 @@ for i = 1:10
     toc
     pause(.1)
 end
+
+drawCircle(dobot,arduinoObj,homepos+[40;0;-55], 15);
+drawX(dobot, arduinoObj, homepos+[40;0;-55], 15)
 

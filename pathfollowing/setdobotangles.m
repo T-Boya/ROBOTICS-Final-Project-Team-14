@@ -31,6 +31,25 @@ function out = setdobotangles(new_angles, arduinoObj)
     line_str_cmd = convertCharsToStrings(line_chr_cmd);
     writeline(arduinoObj,line_str_cmd);
 
-    %pause(1);
+    %pause(.1);
+%     N = 100;
+%     for i = 1:N
+%         
+%         try
+%             dang = readdobotangles(arduinoObj);
+%         catch 
+%             pause(.1);
+%             continue
+%         end
+%         cond1 = (dang.baseAngle-new_angles(1))<.01;
+%         cond2 = (dang.longArmAngle-new_angles(2))<.01;
+%         cond3 = (dang.shortArmAngle-new_angles(3))<.01;
+%         if cond1*cond2*cond3==1
+%             break
+%         else
+%             pause(1/N);
+%             t = 'pause1'
+%         end
+%     end
     out = 'good';
 end
