@@ -1,8 +1,24 @@
 % intialize dobot: INCOMPLETE
-jack
+if exist('arduinoObj') == 0	
+    dobotinit	
+end
 
 % set to zero position: INCOMPLETE
-jack
+home = [0;10;0]; %home angles
+pause(1)	
+setdobotangles(q2ang(home),arduinoObj) %move to home
+% calc dobot home positon
+dobot.q=[home(1);home(2);home(3);-home(2)-home(3)];
+dobot=fwdkiniter(dobot);  
+homepos = dobot.T(1:3,4);
+pause(1)
+setdobotposition(dobot, homepos+[10;10;0], arduinoObj); %move to home pos (should already be there
+pause(1)
+% table height value
+zPaper = -175; % height of the table surface, must be determined during cell setup
+xBoard = 40; %X center of board
+yBoard = 0; %Y center of board
+myChar = 'X';
 
 moveNum = 1;
 board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
@@ -49,7 +65,13 @@ while true
     
     
     % draw character: INCOMPLETE
-    jack
+    if myChar == 'X'
+        drawX(dobot, arduinoObj, homepos+[x;y;zPaper], 15);
+        pause(.5)
+    else
+        drawCircle(dobot,arduinoObj,homepos+[x;y;zPaper], 15);
+        pause(.5)
+    end
     
     % update board model: COMPLETE
     board(row, col) = myChar;
@@ -61,7 +83,8 @@ while true
     
     % move to zero position: INCOMPLETE
     imgOld = imgNew;
-    jack
+    setdobotposition(dobot, homepos+[10;10;0], arduinoObj);
+    pause(1)
     
     % increment moveNum
     moveNum = moveNum + 1;
