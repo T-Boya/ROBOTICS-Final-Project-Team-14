@@ -9,7 +9,7 @@ board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
 
 % set imgNew to image from webcam: COMPLETE (UNTESTED CAMERA IMAGE FETCHING)
 imgNew = getCameraImage();
-    
+opponentChar = 'A';
 while true
     pause(5);
     
@@ -21,13 +21,15 @@ while true
     moveNum = moveNum + 1;
 
     % determine changed character: INCOMPLETE
-    changedChar = getCell(imgNew, row, col);
+    if opponentChar == 'A'
+        opponentChar = getCell(imgNew, row, col);
 
 
-    diyanko
+        diyanko
 
 
-    myChar = assignOpponent(changedChar);
+        myChar = assignOpponent(opponentChar);
+    end
 
     % update board model with new character: COMPLETE
     board(row, col) = myChar;
