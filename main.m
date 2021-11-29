@@ -1,9 +1,9 @@
-% intialize dobot: INCOMPLETE
+% intialize dobot: COMPLETE
 if exist('arduinoObj') == 0	
     dobotinit	
 end
 
-% set to zero position: INCOMPLETE
+% set to zero position: COMPLETE
 home = [0;10;0]; %home angles
 pause(1)	
 setdobotangles(q2ang(home),arduinoObj) %move to home
@@ -36,7 +36,7 @@ while true
         continue; end
     moveNum = moveNum + 1;
 
-    % determine changed character: INCOMPLETE
+    % determine changed character: COMPLETE
     if opponentChar == 'A'
         opponentChar = getCell(imgNew, row, col);
 
@@ -64,7 +64,7 @@ while true
     jack
     
     
-    % draw character: INCOMPLETE
+    % draw character: COMPLETE
     if myChar == 'X'
         drawX(dobot, arduinoObj, homepos+[x;y;zPaper], 15);
         pause(.5)
@@ -81,7 +81,7 @@ while true
     if moveNum == 8 || moveNum == 9 || score == 10
         break; end
     
-    % move to zero position: INCOMPLETE
+    % move to zero position: COMPLETE
     imgOld = imgNew;
     setdobotposition(dobot, homepos+[10;10;0], arduinoObj);
     pause(1)
