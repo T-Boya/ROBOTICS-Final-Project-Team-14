@@ -9,15 +9,15 @@ myChar = 'X';
 moveNum = 1;
 board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
 
-% set imgNew to image from webcam: INCOMPLETE
-imgNew = getImage(...);
+% set imgNew to image from webcam: COMPLETE (UNTESTED CAMERA IMAGE FETCHING)
+imgNew = getCameraImage();
     
 while true
     pause(5);
     
-    % check for changes: INCOMPLETE (need to get new image from webcam)
+    % check for changes: COMPLETE (UNTESTED CAMERA IMAGE FETCHING)
     if moveNum > 1
-            imgNew = getImage(...);
+            imgNew = getCameraImage();
             [row, col] = findChangedCell(imgOld, imgNew);
             if row == 0
                 continue; end

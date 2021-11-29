@@ -4,7 +4,7 @@
 
 %% Get an image from webcam
 clear all; close all; clc
-cam = webcam('Logitech HD Webcam C270')
+cam = webcam('Logitech HD Webcam C270');
 cam.Resolution = '1280x960';
 img = snapshot(cam);
 imshow(img)
