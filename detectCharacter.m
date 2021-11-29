@@ -25,14 +25,17 @@ hold on
 image(Z,'CDataMapping','scaled')
 %%
 
-clear all; close all;
+clear all; close all; clc
 
 o_ref = im2gray(imread('o_ref.jpg'));
 o_ref = imresize(o_ref,[500 500]);
+
 o = im2gray(imread('o.jpg'));
 o = imresize(o,[500 500]);
+
 x_ref = im2gray(imread('x_ref.jpg'));
 x_ref = imresize(x_ref,[500 500]);
+
 x = im2gray(imread('x.jpg'));
 x = imresize(x,[500 500]);
 
