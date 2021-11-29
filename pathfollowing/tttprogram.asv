@@ -31,6 +31,6 @@ setdobotposition(dobot, homepos+[10;10;0], arduinoObj);
 drawCircle(dobot,arduinoObj,homepos+[40;0;-175], 15);
 drawX(dobot, arduinoObj, homepos+[40;40;-175], 15);
 
-pause(1)
+
 setdobotposition(dobot, homepos+[10;10;0], arduinoObj);
 
