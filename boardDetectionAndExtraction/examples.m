@@ -29,12 +29,12 @@ imshow(img);
 
 %% combined
 clear all; close all; clc
-img = getImage('(1).jpg');
+img = getImage('grid2_modified.jpg');
 img = straightenGrid(img);
 img = removeShadows(img);
 img = removeWhitespace(img);
 figure, imshow(img);
-cell3 = getCell(img, 1, 3);
+cell3 = getCell(img, 2, 1);
 figure, imshow(cell3);
 
 %% comparing cell differences
@@ -49,7 +49,7 @@ imshow(changedCell)
 clear all; close all; clc
 
 % clean old image
-oldImage = getImage('(1).jpg');
+oldImage = getImage('grid2.jpg');
 oldImage = imrotate(oldImage, -25); % rotate image to test straightening
 oldImage = straightenGrid(oldImage);
 oldImage = removeShadows(oldImage);
@@ -57,7 +57,7 @@ oldImage = removeWhitespace(oldImage);
 
 
 % clean new image
-newImage = getImage('(2).jpg');
+newImage = getImage('grid2_modified.jpg');
 newImage = imrotate(newImage, -25); % rotate image to test straightening
 newImage = straightenGrid(newImage);
 newImage = removeShadows(newImage);
