@@ -8,6 +8,7 @@ function [row, col] = choosemove(board, myChar)
 end
 
 function [score] = evaluateScore(board, myChar)
+    score = 0;
     % check rows and cols for winner
     for i = 1:3
         row = board(i,:);
@@ -25,24 +26,17 @@ function [score] = evaluateScore(board, myChar)
     diagonalTwo = diag(flipud(board));
     if all(diagonalTwo == diagonalTwo(1)) && row(1) ~= '_'
             score = assignScore(diagonalTwo(1), myChar); return; end
-    score = 0;
 end
 
 % helper function for evaluateScore
 function [score] = assignScore(winner, myChar)
     if winner == myChar
-        score = 10; return;
-    else
-        score = -10; return;
-    end
+        score = 10; return; end
+    score = 0;
 end
 
 function [best] = minimax(board, depth, isMax, myChar)
-    if myChar == 'X'
-        opponent = 'O';
-    else
-        opponent = 'X';
-    end
+    opponent = assignOpponent(myChar);
     score = evaluateScore(board, myChar);
     % return winner if the game ended
     if score == 10 || score == -10
@@ -92,6 +86,14 @@ function [row, col] = findBestMove(board, myChar)
                 end
             end
         end
+    end
+end
+
+function [opponent] = assignOpponent(myChar)
+    if myChar == 'X'
+        opponent = 'O';
+    else
+        opponent = 'X';
     end
 end
 

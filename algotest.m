@@ -5,7 +5,7 @@ board = ['O' '_' '_'; '_' 'O' '_'; '_' '_' '_'];
 
 %% game simulation
 close all; clear all; clc
-board = ['O' '_' '_'; '_' 'O' '_'; '_' '_' '_'];
+board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
 for i = 1:9
     if mod(i, 2) == 0
         char = 'O';
