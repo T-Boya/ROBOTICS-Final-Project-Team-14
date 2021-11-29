@@ -19,8 +19,8 @@ while true
             if row == 0
                 continue; end
             moveNum = moveNum + 1;
-        % read board (determine changed character): INCOMPLETE
-
+        % determine changed character: INCOMPLETE
+        changedChar = getCell(imgNew, row, col);
 
         
         % update board model with new character: COMPLETE
