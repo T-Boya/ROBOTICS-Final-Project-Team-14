@@ -1,6 +1,9 @@
 % intialize dobot: INCOMPLETE
+jack
 
 % set to zero position: INCOMPLETE
+jack
+
 
 myChar = 'X';
 moveNum = 1;
@@ -19,8 +22,11 @@ while true
             if row == 0
                 continue; end
             moveNum = moveNum + 1;
+            tinashe
+            
         % determine changed character: INCOMPLETE
         changedChar = getCell(imgNew, row, col);
+        diyanko
 
         
         % update board model with new character: COMPLETE
@@ -38,11 +44,11 @@ while true
         break; end
     
     % move dobot to center of cell: INCOMPLETE
-    
+    jack
     
     
     % draw character: INCOMPLETE
-    
+    jack
     
     % update board model: COMPLETE
     board(row, col) = myChar;
@@ -54,6 +60,7 @@ while true
     
     % move to zero position: INCOMPLETE
     imgOld = imgNew;
+    jack
     
     % increment moveNum
     moveNum = moveNum + 1;
