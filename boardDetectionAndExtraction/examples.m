@@ -2,6 +2,13 @@
 % tic-tac-toe board MUST be encompassed by border or board detecting code
 % (whitespace removal code) fails
 
+%% Get an image from webcam
+clear all; close all; clc
+cam = webcam('Logitech HD Webcam C270')
+cam.Resolution = '1280x960';
+img = snapshot(cam);
+imshow(img)
+
 %% Slicing an image into cells
 clear all; close all; clc
 img = getImage('grid.png');
