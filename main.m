@@ -4,8 +4,6 @@ jack
 % set to zero position: INCOMPLETE
 jack
 
-
-myChar = 'X';
 moveNum = 1;
 board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
 
@@ -16,27 +14,28 @@ while true
     pause(5);
     
     % check for changes: COMPLETE (UNTESTED CAMERA IMAGE FETCHING)
-    if moveNum > 1
-            imgNew = getCameraImage();
-            [row, col] = findChangedCell(imgOld, imgNew);
-            if row == 0
-                continue; end
-            moveNum = moveNum + 1;
-            tinashe
-            
-        % determine changed character: INCOMPLETE
-        changedChar = getCell(imgNew, row, col);
-        diyanko
+    imgNew = getCameraImage();
+    [row, col] = findChangedCell(imgOld, imgNew);
+    if row == 0
+        continue; end
+    moveNum = moveNum + 1;
 
-        
-        % update board model with new character: COMPLETE
-        board(row, col) = myChar;
+    % determine changed character: INCOMPLETE
+    changedChar = getCell(imgNew, row, col);
 
-        % if lost end: COMPLETE
-        score = evaluateScore(board, myChar);
-        if score == -10
-            break; end
-    end
+
+    diyanko
+
+
+    myChar = assignOpponent(changedChar);
+
+    % update board model with new character: COMPLETE
+    board(row, col) = myChar;
+
+    % if lost end: COMPLETE
+    score = evaluateScore(board, myChar);
+    if score == -10
+        break; end
     
     % decide on best move: COMPLETE
     [row, col] == chooseMove(board, myChar);
