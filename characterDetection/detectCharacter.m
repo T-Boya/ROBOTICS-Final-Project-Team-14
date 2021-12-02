@@ -36,10 +36,10 @@ x_ref = imresize(x_ref,[500 500]);
 x = im2gray(imread('x.jpg'));
 x = imresize(x,[500 500]);
 
-o = imadjust(o,[0.3 0.7]);
-x = imadjust(x,[0.3 0.7]);
+o = imadjust(o,[0.5 0.9]);
+x = imadjust(x,[0.5 0.9]);
 
-% imshow(o)
+imshow(o)
 
 ssimval = immse(o,o_ref)
 ssimval = immse(x,x_ref)
