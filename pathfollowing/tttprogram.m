@@ -57,9 +57,22 @@ drawX(dobot, arduinoObj, cellCenters(2,3,:), 9, 3);
 setdobotposition(dobot, homepos, arduinoObj);
 pause(10)
 
+drawCircle(dobot, arduinoObj, cellCenters(1,1,:), 9, 10);
+setdobotposition(dobot, homepos, arduinoObj);
+pause(10)
+
+drawCircle(dobot, arduinoObj, cellCenters(2,1,:), 9, 10);
+setdobotposition(dobot, homepos, arduinoObj);
+pause(10)
+
+drawCircle(dobot, arduinoObj, cellCenters(3,1,:), 9,10);
+setdobotposition(dobot, homepos, arduinoObj);
+pause(10)
+
 
 setdobotposition(dobot, cornerLoc(:,1)+[0;0;0], arduinoObj);
 setdobotposition(dobot, cornerLoc(:,2)+[0;0;0], arduinoObj);
 setdobotposition(dobot, cornerLoc(:,3)+[0;0;0], arduinoObj);
 setdobotposition(dobot, cornerLoc(:,4)+[0;0;0], arduinoObj);
+pause(5)
 

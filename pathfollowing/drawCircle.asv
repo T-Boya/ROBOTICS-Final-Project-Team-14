@@ -1,13 +1,7 @@
-function MOV = drawCircle(dobot, arduinoObj, cp, r,N)
+function MOV = drawCircle(dobot, arduinoObj, cp, r)
     %% moves robot in a circle
-    
-    if ~exist('N','var')
-     % third parameter does not exist, so default it to something
-      N = 20;
-    end
-    
-    cp = squeeze(cp);
-    
+    cp = transpose(squeeze(cp);
+    N = 20;
     ang = 0:2*pi/N:2*pi;
     loc = zeros(3,N);
     setdobotposition(dobot, cp+[0;0;20], arduinoObj)

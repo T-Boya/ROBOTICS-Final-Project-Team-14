@@ -14,7 +14,7 @@ function MOV = drawLine(dobot, arduinoObj, lineS, lineE, N)
         %tic
         setdobotposition(dobot, lineP(:,i), arduinoObj);
         %toc
-        pause(.2)
+        pause(.3)
     end
     
     MOV = loc;
