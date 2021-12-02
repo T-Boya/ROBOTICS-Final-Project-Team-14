@@ -25,6 +25,10 @@ hold on
 image(Z,'CDataMapping','scaled')
 %%
 
+% Using
+% https://www.mathworks.com/matlabcentral/fileexchange/34898-remove-white-space-around-images
+% for removing the whitespace around the symbols
+
 clear all; close all; clc
 
 o_ref = im2gray(imread('o_ref.jpg'));
