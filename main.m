@@ -25,6 +25,7 @@ board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
 
 % set imgNew to image from webcam: COMPLETE (UNTESTED CAMERA IMAGE FETCHING)
 imgNew = getCameraImage();
+imgOriginal = imgNew;
 opponentChar = 'A';
 while true
     pause(5);
@@ -37,15 +38,17 @@ while true
     moveNum = moveNum + 1;
 
     % determine changed character: INCOMPLETE
-    if opponentChar == 'A'
-        opponentChar = getCell(imgNew, row, col);
+    % if opponentChar == 'A'
+    %     opponentChar = getCell(imgNew, row, col);
 
 
-        diyanko
+    %     diyanko
 
 
-        myChar = assignOpponent(opponentChar);
-    end
+    %     myChar = assignOpponent(opponentChar);
+    % end
+    myChar = 'X';
+    opponentChar = 'O';
 
     % update board model with new character: COMPLETE
     board(row, col) = myChar;
@@ -89,3 +92,31 @@ while true
     % increment moveNum
     moveNum = moveNum + 1;
 end
+
+
+% key performance parameters
+% ensure images are represented by 1x1 array, otherwise below fails
+% shapeStats = zeros(9, 3);
+% imgFinal = getCameraImage();
+% for i = 1:9
+    % shape opacity
+%     cellOriginal = getCell(imgOriginal, mod(i, 3), floor(i/3));
+%     cellModified = getCell(imgFinal, mod(i, 3), floor(i/3));
+    % make cells same size
+    % mismatchedDimensions = [ size(cellOriginal); size(cellModified) ];
+    % dimensions = [ min(mismatchedDimensions(:,1)) min(mismatchedDimensions(:,2)) ];
+%     dimensions = [ 720, 720 ];
+%     cellOriginal = imresize(cellOriginal, dimensions);
+%     cellModified = imresize(cellModified, dimensions);
+%     modifiedVals = zeros(dimensions(1)*dimensions(2), 1);
+%     for j = 1:dimensions(1)
+%         for k = 1:dimensions(2)
+%             if cellOriginal(j, k) ~= cellModified(j,k)
+%                 modifiedVals = cellModified(dimensions(1)*(j-1) + k);
+%             end
+%         end
+%     end
+%     modifiedVals = modifiedVals(1:find(modifiedVals == 0, 1, 'first'));
+%     shapeStats(i,:) = [mean(modifiedVals) range(modifiedVals) std(modifiedVals)];
+% end
+% % weaknesses: fails when shadows change
