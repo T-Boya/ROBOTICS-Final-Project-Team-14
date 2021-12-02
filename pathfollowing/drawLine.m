@@ -1,7 +1,11 @@
-function MOV = drawLine(dobot, arduinoObj, lineS, lineE)
+function MOV = drawLine(dobot, arduinoObj, lineS, lineE, N)
     %% moves robot in a circle
     
-    N = 10;
+    if ~exist('N','var')
+     % third parameter does not exist, so default it to something
+      N = 10;
+    end
+    
     
     loc = zeros(3,N);
     

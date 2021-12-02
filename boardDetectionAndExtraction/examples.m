@@ -6,7 +6,7 @@
 clear all; close all; clc
 cam = webcam('Logitech HD Webcam C270');
 cam.Resolution = '1280x960';
-img = snapshot(cam);
+img = imcrop(snapshot(cam));
 imshow(img)
 imsave
 
@@ -37,14 +37,14 @@ imshow(img);
 
 %% combined
 clear all; close all; clc
-img = getImage('grid.jpg');
+img = getImage('new.bmp');
 img = straightenGrid(img);
 img = removeShadows(img);
 img = removeWhitespace(img);
 figure, imshow(img);
 cell3 = getCell(img, 3, 1);
 figure, imshow(cell3);
-imsave % Saving the image. Remove this if not needed
+% imsave % Saving the image. Remove this if not needed
 
 %% comparing cell differences
 clear all; close all; clc
