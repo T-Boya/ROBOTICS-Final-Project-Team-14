@@ -28,18 +28,32 @@ image(Z,'CDataMapping','scaled')
 clear all; close all; clc
 
 o_ref = im2gray(imread('o_ref.jpg'));
+o_ref = imadjust(o_ref,[0.5 0.9]);
+o_ref = RemoveWhiteSpace(o_ref)
 o_ref = imresize(o_ref,[500 500]);
+figure
+imshow(o_ref)
+
 o = im2gray(imread('o.jpg'));
-o = imresize(o,[500 500]);
-x_ref = im2gray(imread('x_ref.jpg'));
-x_ref = imresize(x_ref,[500 500]);
-x = im2gray(imread('x.jpg'));
-x = imresize(x,[500 500]);
-
 o = imadjust(o,[0.5 0.9]);
-x = imadjust(x,[0.5 0.9]);
-
+o = RemoveWhiteSpace(o)
+o = imresize(o,[500 500]);
+figure
 imshow(o)
+
+x_ref = im2gray(imread('x_ref.jpg'));
+x_ref = imadjust(x_ref,[0.5 0.9]);
+x_ref = RemoveWhiteSpace(x_ref)
+x_ref = imresize(x_ref,[500 500]);
+figure
+imshow(x_ref)
+
+x = im2gray(imread('x.jpg'));
+x = imadjust(x,[0.5 0.9]);
+x = RemoveWhiteSpace(x)
+x = imresize(x,[500 500]);
+figure
+imshow(x)
 
 ssimval = immse(o,o_ref)
 ssimval = immse(x,x_ref)
