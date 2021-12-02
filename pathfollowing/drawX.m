@@ -16,6 +16,6 @@ function MOV = drawX(dobot, arduinoObj, cp, r,N)
     Loc = drawLine(dobot, arduinoObj, corn2, corn4, N);
     pause(3)
     setdobotposition(dobot, corn4+[0;0;20], arduinoObj);
-    pause(1)
+    
     MOV = loc;
 end
