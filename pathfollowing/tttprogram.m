@@ -3,7 +3,11 @@
 % clear all
 % 
 % %initalize
-%dobotinit
+%  dobotinit
+
+if exist('arduinoObj') == 0	
+    dobotinit	
+end
 
 home = [0;10;0];
 pause(1)
@@ -15,7 +19,7 @@ dobot=fwdkiniter(dobot);
 homepos = dobot.T(1:3,4);
 pause(1)
 setdobotposition(dobot, homepos+[10;10;0], arduinoObj);
-
+bc = [200;0;60];
 
 % lineS = [00;-40;0];
 % lineE = [00;40;0];
@@ -28,9 +32,9 @@ setdobotposition(dobot, homepos+[10;10;0], arduinoObj);
 %     pause(.1)
 % end
 
-drawCircle(dobot,arduinoObj,homepos+[40;0;-175], 15);
-drawX(dobot, arduinoObj, homepos+[40;40;-175], 15);
+drawCircle(dobot,arduinoObj,bc+[0;0;0], 15);
+drawX(dobot, arduinoObj, bc+[0;40;0], 15);
 
 pause(1)
-setdobotposition(dobot, homepos+[10;10;0], arduinoObj);
+setdobotposition(dobot, bc+[10;10;0], arduinoObj);
 
