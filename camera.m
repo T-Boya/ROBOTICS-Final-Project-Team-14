@@ -1,3 +1,14 @@
+%given calibration image and board image
+% run camera calibration script on given image
+
+
+K = cameraParams.Intrinsics.IntrinsicMatrix';
+reproj = cameraParams.ReprojectedPoints(:,:,1);
+orig = cameraParams.WorldPoints;
+uconv = (orig(1,2) - orig(1, 1)) / (reproj(1,2) - reproj(1, 1));
+vconv = (orig(1,1) - orig(2, 1)) / (reproj(1,1) - reproj(2, 1));
+
+
 % given image img and 
 [rows, cols] = size(img);
 % find image center coordinates in pixels
@@ -15,5 +26,5 @@ offsetXPx = gridCntrX - imgCntrX;
 offsetYPx = gridCntrY - imgCntrY;
 
 % find offset in mm
-offsetX = ;
-offsetY = ;
+offsetX = offsetXPx * uconv;
+offsetY = offsetYPx * vconv;
