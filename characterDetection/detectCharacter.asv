@@ -1,5 +1,5 @@
 clear all; close all; clc
-img = getImage('o.jpg');
+img = imread('o.jpg');
 ocrResults = ocr(img,'TextLayout','Character')
 
 recognizedText = ocrResults.Text;    
