@@ -41,19 +41,19 @@ cvo = [-3,-3,2,2];
 [cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc+[0;0;0], cvo, 3*25.4);
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
 
-drawX(dobot, arduinoObj, cellCenters(:,9), 9, 3);
+drawX(dobot, arduinoObj, cellCenters(2,2,:), 9, 3);
 setdobotposition(dobot, homepos, arduinoObj);
 pause(10)
 
-drawX(dobot, arduinoObj, cellCenters(:,1), 9, 3);
+drawX(dobot, arduinoObj, cellCenters(1,3,:), 9, 3);
 setdobotposition(dobot, homepos, arduinoObj);
 pause(10)
 
-drawX(dobot, arduinoObj, cellCenters(:,3), 9, 3);
+drawX(dobot, arduinoObj, cellCenters(3,3,:), 9, 3);
 setdobotposition(dobot, homepos, arduinoObj);
 pause(10)
 
-drawX(dobot, arduinoObj, cellCenters(:,2), 9, 3);
+drawX(dobot, arduinoObj, cellCenters(2,3,:), 9, 3);
 setdobotposition(dobot, homepos, arduinoObj);
 pause(10)
 
