@@ -1,0 +1,6 @@
+% given image img
+[imgCntrX, imgCntrY] = size(img);
+% find image center coordinates in pixrls
+imgCntrX = imgCntrX/2;
+imgCntrY = imgCntrY/2;
+
