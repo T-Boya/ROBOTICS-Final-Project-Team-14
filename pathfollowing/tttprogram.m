@@ -9,7 +9,7 @@ if exist('arduinoObj') == 0
     dobotinit	
 end
 
-home = [0;10;0];
+home = [90;10;0];
 pause(1)
 setdobotangles(q2ang(home),arduinoObj)
 
@@ -18,7 +18,7 @@ dobot=fwdkiniter(dobot);
 
 homepos = dobot.T(1:3,4);
 pause(1)
-setdobotposition(dobot, homepos+[10;10;0], arduinoObj);
+setdobotposition(dobot, homepos, arduinoObj);
 bc = [175;0;35];
 setdobotposition(dobot, bc, arduinoObj);
 % lineS = [00;-40;0];
@@ -41,19 +41,19 @@ cvo = [-3,-3,2,2];
 [cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc+[0;0;0], cvo, 3*25.4);
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
 
-drawX(dobot, arduinoObj, cellCenters(:,9), 9);
+drawX(dobot, arduinoObj, cellCenters(:,9), 9, 3);
 setdobotposition(dobot, homepos, arduinoObj);
 pause(10)
 
-drawX(dobot, arduinoObj, cellCenters(:,1), 9);
+drawX(dobot, arduinoObj, cellCenters(:,1), 9, 3);
 setdobotposition(dobot, homepos, arduinoObj);
 pause(10)
 
-drawX(dobot, arduinoObj, cellCenters(:,3), 9);
+drawX(dobot, arduinoObj, cellCenters(:,3), 9, 3);
 setdobotposition(dobot, homepos, arduinoObj);
 pause(10)
 
-drawX(dobot, arduinoObj, cellCenters(:,2), 9);
+drawX(dobot, arduinoObj, cellCenters(:,2), 9, 3);
 setdobotposition(dobot, homepos, arduinoObj);
 pause(10)
 
