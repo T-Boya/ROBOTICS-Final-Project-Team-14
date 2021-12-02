@@ -4,7 +4,7 @@ if exist('arduinoObj') == 0
 end
 
 % set to zero position: COMPLETE
-home = [0;10;0]; %home angles
+home = [90;10;0]; %home angles
 pause(1)	
 setdobotangles(q2ang(home),arduinoObj) %move to home
 % calc dobot home positon
@@ -14,10 +14,19 @@ homepos = dobot.T(1:3,4);
 pause(1)
 setdobotposition(dobot, homepos+[10;10;0], arduinoObj); %move to home pos (should already be there
 pause(1)
-% table height value
-zPaper = -175; % height of the table surface, must be determined during cell setup
-xBoard = 40; %X center of board
+% table height value (calibrate these vales before starting
+zPaper = 35; % height of the table surface, must be determined during cell setup
+xBoard = 175; %X center of board
 yBoard = 0; %Y center of board
+bc = [xBoard;yBoard;zPaper];
+
+% draw board
+pause(1)
+setdobotposition(dobot, bc+[0;0;20], arduinoObj);
+cvo = [-3,-3,2,2];
+[cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc+[0;0;0], cvo, 3*25.4);
+setdobotposition(dobot, bc+[0;0;20], arduinoObj);
+
 myChar = 'X';
 
 moveNum = 1;
@@ -63,16 +72,14 @@ while true
     if row < 0
         break; end
     
-    % move dobot to center of cell: INCOMPLETE
-    jack
-    
+   
     
     % draw character: COMPLETE
     if myChar == 'X'
-        drawX(dobot, arduinoObj, homepos+[x;y;zPaper], 15);
+        drawX(dobot, arduinoObj, cornerLoc(row,col,:), 9,3);
         pause(.5)
     else
-        drawCircle(dobot,arduinoObj,homepos+[x;y;zPaper], 15);
+        drawCircle(dobot,arduinoObj, cornerLoc(row,col,:), 9);
         pause(.5)
     end
     

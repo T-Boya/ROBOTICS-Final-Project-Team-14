@@ -63,16 +63,16 @@ function [cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc, cvo, L)
     pause(cornStop+3)
     pause(1)
     
-    cellCenters=zeros(3,9);
-    cellCenters(:,1)=bc + [L/3;L/3;.67*cvo(1)];
-    cellCenters(:,2)=bc + [L/3;0;.67*(cvo(1)+cvo(2))];
-    cellCenters(:,3)=bc + [L/3;-L/3;.67*cvo(2)];
-    cellCenters(:,4)=bc + [0;-L/3;.67*(cvo(3)+cvo(2))];
-    cellCenters(:,5)=bc + [-L/3;-L/3;.67*cvo(3)];
-    cellCenters(:,6)=bc + [-L/3;0;.67*(cvo(3)+cvo(4))];
-    cellCenters(:,7)=bc + [-L/3;L/3;.67*cvo(4)];
-    cellCenters(:,8)=bc + [0;L/3;.67*(cvo(1)+cvo(4))];
-    cellCenters(:,9)=bc ;
+    cellCenters=zeros(3,3,3);
+    cellCenters(1,3,:)=bc + [L/3;L/3;.67*cvo(1)];
+    cellCenters(2,3,:)=bc + [L/3;0;.67*(cvo(1)+cvo(2))];
+    cellCenters(3,3,:)=bc + [L/3;-L/3;.67*cvo(2)];
+    cellCenters(3,2,:)=bc + [0;-L/3;.67*(cvo(3)+cvo(2))];
+    cellCenters(3,1,:)=bc + [-L/3;-L/3;.67*cvo(3)];
+    cellCenters(2,1,:)=bc + [-L/3;0;.67*(cvo(3)+cvo(4))];
+    cellCenters(1,1,:)=bc + [-L/3;L/3;.67*cvo(4)];
+    cellCenters(1,2,:)=bc + [0;L/3;.67*(cvo(1)+cvo(4))];
+    cellCenters(2,2,:)=bc ;
     
     
 end
