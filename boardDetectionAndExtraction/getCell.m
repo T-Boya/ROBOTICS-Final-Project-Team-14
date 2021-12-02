@@ -9,6 +9,6 @@ function [cell] = getCell(grid, x, y)
     cell = grid(i*(x-1)+1: i*x, j*(y-1)+1: y*j);
     % Crop the outer 5% to remove potential borders
     [height, width] = size(cell);
-    cell = cell(round(width*0.05):round(width*0.95),...
-        round(height*0.05):round(height*0.95));
+    cell = cell(round(width*0.1):round(width*0.9),...
+        round(height*0.1):round(height*0.9));
 end
