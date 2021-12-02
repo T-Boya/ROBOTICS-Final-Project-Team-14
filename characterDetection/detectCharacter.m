@@ -45,3 +45,7 @@ ssimval = immse(o,o_ref)
 ssimval = immse(x,x_ref)
 ssimval = immse(o,x_ref)
 ssimval = immse(x,o_ref)
+
+%%
+
+imshow(RemoveWhiteSpace(x))

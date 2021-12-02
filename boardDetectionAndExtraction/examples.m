@@ -42,7 +42,7 @@ img = straightenGrid(img);
 img = removeShadows(img);
 img = removeWhitespace(img);
 figure, imshow(img);
-cell3 = getCell(img, 1, 1);
+cell3 = getCell(img, 3, 1);
 figure, imshow(cell3);
 imsave % Saving the image. Remove this if not needed
 
