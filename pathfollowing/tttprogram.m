@@ -19,8 +19,8 @@ dobot=fwdkiniter(dobot);
 homepos = dobot.T(1:3,4);
 pause(1)
 setdobotposition(dobot, homepos+[10;10;0], arduinoObj);
-bc = [200;0;60];
-
+bc = [175;0;35];
+setdobotposition(dobot, bc, arduinoObj);
 % lineS = [00;-40;0];
 % lineE = [00;40;0];
 % lineP=[linspace(lineS(1),lineE(1),10);linspace(lineS(2),lineE(2),10);linspace(lineS(3),lineE(3),10)];
@@ -31,10 +31,35 @@ bc = [200;0;60];
 %     toc
 %     pause(.1)
 % end
-
-drawCircle(dobot,arduinoObj,bc+[0;0;0], 15);
-drawX(dobot, arduinoObj, bc+[0;40;0], 15);
+% 
+% drawCircle(dobot,arduinoObj,bc+[0;0;0], 15);
+% drawX(dobot, arduinoObj, bc+[0;40;0], 15);
 
 pause(1)
-setdobotposition(dobot, bc+[10;10;0], arduinoObj);
+setdobotposition(dobot, bc+[0;0;20], arduinoObj);
+cvo = [-3,-3,2,2];
+[cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc+[0;0;0], cvo, 3*25.4);
+setdobotposition(dobot, bc+[0;0;20], arduinoObj);
+
+drawX(dobot, arduinoObj, cellCenters(:,9), 9);
+setdobotposition(dobot, homepos, arduinoObj);
+pause(10)
+
+drawX(dobot, arduinoObj, cellCenters(:,1), 9);
+setdobotposition(dobot, homepos, arduinoObj);
+pause(10)
+
+drawX(dobot, arduinoObj, cellCenters(:,3), 9);
+setdobotposition(dobot, homepos, arduinoObj);
+pause(10)
+
+drawX(dobot, arduinoObj, cellCenters(:,2), 9);
+setdobotposition(dobot, homepos, arduinoObj);
+pause(10)
+
+
+setdobotposition(dobot, cornerLoc(:,1)+[0;0;0], arduinoObj);
+setdobotposition(dobot, cornerLoc(:,2)+[0;0;0], arduinoObj);
+setdobotposition(dobot, cornerLoc(:,3)+[0;0;0], arduinoObj);
+setdobotposition(dobot, cornerLoc(:,4)+[0;0;0], arduinoObj);
 
