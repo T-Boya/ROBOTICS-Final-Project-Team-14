@@ -36,7 +36,7 @@ while true
         continue; end
     moveNum = moveNum + 1;
 
-    % determine changed character: COMPLETE
+    % determine changed character: INCOMPLETE
     if opponentChar == 'A'
         opponentChar = getCell(imgNew, row, col);
 
