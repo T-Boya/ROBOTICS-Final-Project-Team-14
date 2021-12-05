@@ -33,14 +33,14 @@ clear all; close all; clc
 
 o_ref = im2gray(imread('o_ref.jpg'));
 o_ref = imadjust(o_ref,[0.5 0.9]);
-o_ref = RemoveWhiteSpace(o_ref)
+o_ref = RemoveWhiteSpace(o_ref);
 o_ref = imresize(o_ref,[500 500]);
 figure
 imshow(o_ref)
 
 o = im2gray(imread('o.jpg'));
 o = imadjust(o,[0.5 0.9]);
-o = RemoveWhiteSpace(o)
+o = RemoveWhiteSpace(o);
 o = imresize(o,[500 500]);
 figure
 imshow(o)
@@ -54,7 +54,7 @@ imshow(x_ref)
 
 x = im2gray(imread('x.jpg'));
 x = imadjust(x,[0.5 0.9]);
-x = RemoveWhiteSpace(x)
+x = RemoveWhiteSpace(x);
 x = imresize(x,[500 500]);
 figure
 imshow(x)
