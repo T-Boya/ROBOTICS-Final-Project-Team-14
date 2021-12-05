@@ -47,14 +47,14 @@ imshow(o)
 
 x_ref = im2gray(imread('x_ref.jpg'));
 x_ref = imadjust(x_ref,[0.5 0.9]);
-x_ref = RemoveWhiteSpace(x_ref)
+x_ref = RemoveWhiteSpace(x_ref);
 x_ref = imresize(x_ref,[500 500]);
 figure
 imshow(x_ref)
 
 x = im2gray(imread('x.jpg'));
 x = imadjust(x,[0.5 0.9]);
-x = RemoveWhiteSpace(x);
+x = RemoveWhiteSpace(x)
 x = imresize(x,[500 500]);
 figure
 imshow(x)
