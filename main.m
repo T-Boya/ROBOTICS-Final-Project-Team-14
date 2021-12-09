@@ -90,7 +90,7 @@ while true
         drawX(dobot, arduinoObj, cellCenters(row,col,:), 9, 5);
         pause(.5)
     else
-        drawCircle(dobot,arduinoObj, cornerLoc(row,col,:), 9);
+        drawCircle(dobot,arduinoObj, cellCenters(row,col,:), 9);
         pause(.5)
     end
     
