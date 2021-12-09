@@ -38,7 +38,7 @@ dobot = setdobotposition(dobot, bc, arduinoObj);
 pause(1)
 dobot = setdobotposition(dobot, bc+[0;0;20], arduinoObj);
 cvo = [0;0;0;0];
-[cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc+[0;0;0], cvo, 3*25.4);
+[cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc+[0;0;0], cvo, 3*25);
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
 
 drawX(dobot, arduinoObj, cellCenters(2,2,:), 9, 5);
