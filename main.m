@@ -1,3 +1,15 @@
+%%
+
+% Finish up the following
+% - opponent character detection
+% - findChangedCell
+% - chooseMove
+% - get out of loop
+
+
+%% 
+
+
 % intialize dobot: COMPLETE
 if exist('arduinoObj') == 0	
     dobotinit	
@@ -78,7 +90,7 @@ while true
 %         break; end
     
     % decide on best move: COMPLETE
-    %[row, col] == chooseMove(board, myChar)+[1 1];
+    %[row, col] == chooseMove(board, myChar)+[1 1]; 
     [row,col] = chooseMoveRandom(board)
     if row < 0
         break; end
@@ -140,10 +152,9 @@ end
 % end
 % % weaknesses: fails when shadows change
 
+
+% Manually entering the user input data of the row and column
 function [r,c] = findChangedCellmanual
     r = input('row');
     c = input('column');
-
-
-
 end
