@@ -27,12 +27,16 @@ if dobotnumber == 2
     L4 = 42.5;
     L5 = 25;
 
-    p01=L1*ez;
+%     p01=L1*ez;
+%     p12=zz;
+%     p23=L2*ez*sin(atan2(1967-1568,2025-1919))-L2*ex*cos(atan2(1967-1568,2025-1919));
+%     p34=L3*ex;
+%     p4T=L4*ex - L5*ez;
+    x = [-57.6889;   -0.3649;  123.8430;  154.8439;   -0.3649;   11.1579;   54.0734;   -0.3649;  -59.8550];
     p12=zz;
-    p23=L2*ez*sin(atan2(1967-1568,2025-1919))-L2*ex*cos(atan2(1967-1568,2025-1919));
-    p34=L3*ex;
-    p4T=L4*ex - L5*ez;
-
+    p23=x(1:3);
+    p34=x(4:6);
+    p4T=x(7:9);
     
 elseif dobotnumber == 3
     %these are rough numbers, need to be calibrated
