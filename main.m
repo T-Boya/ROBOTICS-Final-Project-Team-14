@@ -27,7 +27,7 @@ pause(1)
 setdobotposition(dobot, homepos, arduinoObj); %move to home pos (should already be there
 pause(1)
 % table height value (calibrate these vales before starting
-zPaper = 20; % height of the table surface, must be determined during cell setup
+zPaper = 18; % height of the table surface, must be determined during cell setup
 xBoard = 185; %X center of board
 yBoard = 0; %Y center of board
 bc = [xBoard;yBoard;zPaper];
@@ -35,7 +35,7 @@ bc = [xBoard;yBoard;zPaper];
 % draw board
 pause(1)
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
-cvo = [-1;-1;-6;-6];
+cvo = [-2;-2;-6;-6];
 [cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc+[0;0;0], cvo, 3*25);
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
 
