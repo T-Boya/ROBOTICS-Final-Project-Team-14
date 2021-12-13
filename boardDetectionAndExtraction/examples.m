@@ -82,12 +82,7 @@ else
 end
 
 %% findChangedCellFinal
-cam = webcam('Logitech HD Webcam C270');
-cam.Resolution = '1280x960';
-img1 = snapshot(cam);
+img1 = takePicture();
 pause(5)
-img2 = snapshot(cam);
-
-img1 = rgb2gray(img1);
-img2 = rgb2gray(img2);
+img2 = takePicture();
 findChangedCellFinal(img1, img2)
