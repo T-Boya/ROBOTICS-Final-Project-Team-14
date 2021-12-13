@@ -74,11 +74,12 @@ while true
 
         [row, col] = findChangedCell(img1fixed, img2fixed);
         if sum([row col]) == 0
-            continue
-        else
-            changedCell = getCell(img2fixed, row, col);
-        end
-        newImage = img2fixed;
+        disp('no cells changed')
+    else
+        changedCell = getCell(newImage, row, col);
+        imshow(changedCell)
+    end
+        changedCell = getCell(img2fixed, row, col);
     end
     
     % check for changes: COMPLETE (UNTESTED CAMERA IMAGE FETCHING) 

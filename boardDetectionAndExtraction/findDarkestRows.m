@@ -8,7 +8,8 @@ function [locations] = findDarkestRows(img, rows, k, vertical)
             y(i) = -sum(img(i,:));
         end
     end
-    % plot(x, y);
+    y = y(10:end-10);
+    % plot(x(10:end-10), y);
     [peaks, locations] = findpeaks(y, 'MinPeakDistance', 100);
     [~, locationsTemp] = maxk(peaks, k);
     for i = 1:k

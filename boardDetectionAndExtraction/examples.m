@@ -82,7 +82,5 @@ else
 end
 
 %% findChangedCellFinal
-img1 = takePicture();
-pause(5)
-img2 = takePicture();
-findChangedCellFinal(img1, img2)
+
+imshow(changedCell)
