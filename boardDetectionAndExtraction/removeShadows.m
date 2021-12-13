@@ -3,5 +3,5 @@
 
 function [img] = removeShadows(img)
     img = imadjust(img, [0 1], []);
-    img = imadd(img, 75);
+    % img = imadd(img, 75);
 end
