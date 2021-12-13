@@ -27,7 +27,7 @@ pause(1)
 setdobotposition(dobot, homepos, arduinoObj); %move to home pos (should already be there
 pause(1)
 % table height value (calibrate these vales before starting
-zPaper = -2; % height of the table surface, must be determined during cell setup
+zPaper = 7; % height of the table surface, must be determined during cell setup
 xBoard = 185; %X center of board
 yBoard = 0; %Y center of board
 bc = [xBoard;yBoard;zPaper];

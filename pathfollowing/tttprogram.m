@@ -19,7 +19,7 @@ dobot=fwdkiniter(dobot);
 homepos = dobot.T(1:3,4);
 pause(1)
 %dobot = setdobotposition(dobot, homepos, arduinoObj);
-bc = [185;0;-2];
+bc = [185;0;20];
 dobot = setdobotposition(dobot, bc, arduinoObj);
 % lineS = [00;-40;0];
 % lineE = [00;40;0];
