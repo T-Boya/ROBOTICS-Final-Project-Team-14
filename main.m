@@ -9,7 +9,7 @@
 
 %% 
 
-
+dobotnumber = 2; %specifies dobot used #2 or #3
 % intialize dobot: COMPLETE
 if exist('arduinoObj') == 0	
     dobotinit	
@@ -18,7 +18,7 @@ end
 reference = takePicture();
 
 % set to zero position: COMPLETE
-home = [90;10;0]; %home angles
+home = [90;45;15]; %home angles
 pause(1)	
 setdobotangles(q2ang(home),arduinoObj) %move to home
 % calc dobot home positon
@@ -29,7 +29,7 @@ pause(1)
 setdobotposition(dobot, homepos, arduinoObj); %move to home pos (should already be there
 pause(1)
 % table height value (calibrate these vales before starting
-zPaper = -2; % height of the table surface, must be determined during cell setup
+zPaper = 18; % height of the table surface, must be determined during cell setup
 xBoard = 185; %X center of board
 yBoard = 0; %Y center of board
 bc = [xBoard;yBoard;zPaper];
@@ -37,7 +37,7 @@ bc = [xBoard;yBoard;zPaper];
 % draw board
 pause(1)
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
-cvo = [0;0;0;0];
+cvo = [-2;-2;-6;-6];
 [cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc+[0;0;0], cvo, 3*25);
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
 
