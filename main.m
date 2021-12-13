@@ -58,7 +58,7 @@ while true
     % check for changes: COMPLETE (UNTESTED CAMERA IMAGE FETCHING) 
     
     %imgNew = getCameraImage();
-    %[row, col] = findChangedCell(imgOld, imgNew);
+    %[row, col] = findChangedCellFinal(imgOld, imgNew);
     [row, col] = findChangedCellmanual; %function asks for manual input of location, used for testing
     
     if row == 0
@@ -91,7 +91,7 @@ while true
     
     % decide on best move: COMPLETE
     %[row, col] == chooseMove(board, myChar)+[1 1]; 
-    [row,col] = chooseMoveRandom(board)
+    [row,col] = chooseMoveRandom(board);
     if row < 0
         break; end
     
@@ -107,7 +107,7 @@ while true
     end
     
     % update board model: COMPLETE
-    board(row, col) = myChar
+    board(row, col) = myChar;
     
     % f this was the eighth or ninth move or game won, end: COMPLETE
     % no evaluate score function
