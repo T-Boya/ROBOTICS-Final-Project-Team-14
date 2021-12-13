@@ -16,7 +16,7 @@ if exist('arduinoObj') == 0
 end
 
 % set to zero position: COMPLETE
-home = [90;10;0]; %home angles
+home = [90;45;15]; %home angles
 pause(1)	
 setdobotangles(q2ang(home),arduinoObj) %move to home
 % calc dobot home positon
