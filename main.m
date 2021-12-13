@@ -35,7 +35,7 @@ bc = [xBoard;yBoard;zPaper];
 % draw board
 pause(1)
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
-cvo = [1;1;-6;-6];
+cvo = [-1;-1;-6;-6];
 [cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc+[0;0;0], cvo, 3*25);
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
 
