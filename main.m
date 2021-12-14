@@ -30,11 +30,11 @@ homepos = dobot.T(1:3,4);
 pause(1)
 setdobotposition(dobot, homepos, arduinoObj); %move to home pos (should already be there
 pause(3)
-if exist('reference', 'var') == 0	
+%if exist('reference', 'var') == 0	
     disp('REF IMG')
     reference = takePicture();	
     reference = cropImage(reference, 10);
-end
+%end
 % table height value (calibrate these vales before starting
 zPaper = 4; % height of the table surface, must be determined during cell setup
 xBoard = 185; %X center of board
@@ -65,7 +65,7 @@ while true
     img1fixed = subtractReference(img1fixed, reference);
     img1fixed = straightenGrid(img1fixed);
     img1fixed = removeWhitespace(img1fixed); 
-    img1fixed = imadjust(img1fixed, [.7 1], []);
+    img1fixed = imadjust(img1fixed, [.85 1], []);
     
     while true
         disp('play now')
@@ -76,7 +76,7 @@ while true
         img2fixed = subtractReference(img2fixed, reference);
         img2fixed = straightenGrid(img2fixed);
         img2fixed = removeWhitespace(img2fixed); 
-        img2fixed = imadjust(img2fixed, [0.7 1], []);
+        img2fixed = imadjust(img2fixed, [0.85 1], []);
 
         [row, col] = findChangedCell(img1fixed, img2fixed);
         if sum([row col]) ~= 0 && board(row, col) == '_'
