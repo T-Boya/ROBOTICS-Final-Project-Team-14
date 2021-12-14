@@ -54,7 +54,7 @@ function [row, col] = findBestMove(board, myChar)
                 board(i, j) = myChar;
                 moveVal = minimax(board, 0, false, myChar);
                 board(i, j) = '_';
-                if moveVal > bestVal
+                if moveVal > bestVal && moveVal ~= -10
                     row = i; col = j;
                     bestVal = moveVal;
                 end

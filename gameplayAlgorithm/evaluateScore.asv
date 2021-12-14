@@ -6,7 +6,7 @@ function [score] = evaluateScore(board, myChar)
         if all(row == row(1)) && row(1) ~= '_'
             score = assignScore(row(1), myChar); return; end
         col = board(:,i);
-        if all(col == col(1)) && col(1) ~= '_'
+        if all(col == col(1)) && row(1) ~= '_'
             score = assignScore(col(1), myChar); return; end
     end
     
