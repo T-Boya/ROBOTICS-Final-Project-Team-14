@@ -1,6 +1,6 @@
 %%  single move test
 close all; clear all; clc
-board = ['O' '_' '_'; '_' 'O' '_'; '_' '_' '_'];
+board = ['O' '_' '_'; '_' 'O' '_'; '_' '_' 'O'];
 [row, col] = choosemove(board, 'X');
 
 %% game simulation
