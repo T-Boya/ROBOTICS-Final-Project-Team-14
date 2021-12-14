@@ -11,7 +11,7 @@ function [row, col] = findChangedCell(oldImage, newImage)
         for j = 1:3
             oldCell = getCell(oldImage, i, j);
             newCell = getCell(newImage, i , j);
-            differences(i, j) = mean(mean(imabsdiff(oldCell, newCell)));
+            differences(i, j) = max(mean(mean(imabsdiff(oldCell, newCell))) - 5, 0);
             if differences(i, j) > maxDiff
                 maxDiff = differences(i, j);
                 row = i; col = j;
