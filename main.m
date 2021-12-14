@@ -29,7 +29,7 @@ dobot=fwdkiniter(dobot);
 homepos = dobot.T(1:3,4);
 pause(1)
 setdobotposition(dobot, homepos, arduinoObj); %move to home pos (should already be there
-pause(1)
+pause(3)
 if exist('reference', 'var') == 0	
     reference = takePicture();	
 end
@@ -60,7 +60,7 @@ board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
 % opponentChar = 'A';
 while true
     setdobotposition(dobot, homepos, arduinoObj);
-    pause(1);
+    pause(3);
     disp('WAIT')
     img1 = takePicture();
     img1fixed = cropImage(img1, 15);
@@ -123,8 +123,8 @@ while true
          break; end
     
     % decide on best move: COMPLETE
-    %[row, col] == chooseMove(board, myChar)+[1 1]; 
-    [row,col] = chooseMoveRandom(board);
+    [row, col] == chooseMove(board, myChar)+[1 1]; 
+    %[row,col] = chooseMoveRandom(board);
     if row < 0
         break; end
     
@@ -154,8 +154,7 @@ while true
     
     % move to zero position: COMPLETE
     %imgOld = imgNew;
-    setdobotposition(dobot, homepos+[10;10;0], arduinoObj);
-    pause(1)
+    
     
     % increment moveNum
     moveNum = moveNum + 1;
