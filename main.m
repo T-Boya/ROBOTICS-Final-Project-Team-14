@@ -105,7 +105,7 @@ while true
 
     % if lost end
      score = evaluateScore(board, myChar);
-     if score == -10
+     if score == -10 || score == 10
          break; end
     
     % decide on best move: COMPLETE
@@ -147,9 +147,3 @@ end
 % move to zero position
 setdobotposition(dobot, homepos, arduinoObj);
 disp('End of Game')
-
-% Manually entering the user input data of the row and column
-function [r,c] = findChangedCellmanual
-    r = input('row');
-    c = input('column');
-end
