@@ -65,7 +65,7 @@ while true
     img1fixed = subtractReference(img1fixed, reference);
     img1fixed = straightenGrid(img1fixed);
     img1fixed = removeWhitespace(img1fixed); 
-    imadjust(img1fixed, [0 1], []);
+    img1fixed = imadjust(img1fixed, [0.85 1], []);
     
     while true
         pause(5);
@@ -75,14 +75,14 @@ while true
         img2fixed = subtractReference(img2fixed, reference);
         img2fixed = straightenGrid(img2fixed);
         img2fixed = removeWhitespace(img2fixed); 
-        imadjust(img2fixed, [0 1], []);
+        img2fixed = imadjust(img2fixed, [0.85 1], []);
 
         [row, col] = findChangedCell(img1fixed, img2fixed);
-        if sum([row col]) == 0
-            continue
+        if sum([row col]) ~= 0
+            changedCell = getCell(img2fixed, row, col);
+            newImage = img2fixed;
+            break
         end
-        changedCell = getCell(img2fixed, row, col);
-        newImage = img2fixed;
     end
     
     % check for changes: COMPLETE (UNTESTED CAMERA IMAGE FETCHING) 
