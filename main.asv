@@ -61,7 +61,7 @@ board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
 while true
     setdobotposition(dobot, homepos, arduinoObj);
     pause(1);
-    disp('WAIT')
+    
     img1 = takePicture();
     img1fixed = cropImage(img1, 15);
     img1fixed = subtractReference(img1fixed, reference);
@@ -70,7 +70,6 @@ while true
     img1fixed = imadjust(img1fixed, [.7 1], []);
     
     while true
-        disp('play now')
         pause(5);
         
         img2 = takePicture();
@@ -118,9 +117,9 @@ while true
 
     % if lost end: COMPLETE 
     % % % no function 'evaluate score' % % %
-     score = evaluateScore(board, myChar);
-     if score == -10
-         break; end
+%     score = evaluateScore(board, myChar);
+%     if score == -10
+%         break; end
     
     % decide on best move: COMPLETE
     %[row, col] == chooseMove(board, myChar)+[1 1]; 
@@ -144,13 +143,9 @@ while true
     
     % f this was the eighth or ninth move or game won, end: COMPLETE
     % no evaluate score function
-    score = evaluateScore(board, myChar);
-    if moveNum == 8 || moveNum == 9 || score == 10
-        break; end
-    % redundant game-ending code
-    if row < 0
-        break
-    end
+    %score = evaluateScore(board, myChar);
+%     if moveNum == 8 || moveNum == 9 || score == 10
+%         break; end
     
     % move to zero position: COMPLETE
     %imgOld = imgNew;
