@@ -7,12 +7,7 @@ function [row, col] = choosemove(board, myChar)
     [row, col] = findBestMove(board, myChar);
 end
 
-% helper function for evaluateScore
-function [score] = assignScore(winner, myChar)
-    if winner == myChar
-        score = 10; return; end
-    score = 0;
-end
+
 
 function [best] = minimax(board, depth, isMax, myChar)
     opponent = assignOpponent(myChar);
