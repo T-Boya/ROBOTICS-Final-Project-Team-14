@@ -123,7 +123,7 @@ while true
          break; end
     
     % decide on best move: COMPLETE
-    [row, col] == chooseMove(board, myChar)+[1 1]; 
+    [row, col] == choosemove(board, myChar); 
     %[row,col] = chooseMoveRandom(board);
     if row < 0
         break; end
