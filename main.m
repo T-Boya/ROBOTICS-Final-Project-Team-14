@@ -141,9 +141,13 @@ while true
     
     % f this was the eighth or ninth move or game won, end: COMPLETE
     % no evaluate score function
-    %score = evaluateScore(board, myChar);
-%     if moveNum == 8 || moveNum == 9 || score == 10
-%         break; end
+    score = evaluateScore(board, myChar);
+    if moveNum == 8 || moveNum == 9 || score == 10
+        break; end
+    % redundant game-ending code
+    if row < 0
+        break
+    end
     
     % move to zero position: COMPLETE
     %imgOld = imgNew;

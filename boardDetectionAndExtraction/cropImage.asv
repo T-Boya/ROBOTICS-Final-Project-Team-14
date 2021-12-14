@@ -1,5 +1,0 @@
-function [img] = cropImage(img, percent)
-    [height, width] = size(img);
-    img = img(round(height*percent/100):round(height*(1-(p),...
-    round(width*0.1):round(width*0.9));
-end
