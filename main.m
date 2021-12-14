@@ -118,9 +118,9 @@ while true
 
     % if lost end: COMPLETE 
     % % % no function 'evaluate score' % % %
-%     score = evaluateScore(board, myChar);
-%     if score == -10
-%         break; end
+     score = evaluateScore(board, myChar);
+     if score == -10
+         break; end
     
     % decide on best move: COMPLETE
     %[row, col] == chooseMove(board, myChar)+[1 1]; 
