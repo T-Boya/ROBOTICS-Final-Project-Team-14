@@ -100,7 +100,8 @@ while true
     
 
     % update board model with new character: COMPLETE
-    board(row, col) = opponentChar
+    board(row, col) = opponentChar;
+    disp(board);
 
     % if lost end
      score = evaluateScore(board, myChar);
@@ -126,7 +127,8 @@ while true
     end
     
     % update board model
-    board(row, col) = myChar
+    board(row, col) = myChar;
+    disp(board)
     
     % if this was the eighth or ninth move or game won, end
     score = evaluateScore(board, myChar);
