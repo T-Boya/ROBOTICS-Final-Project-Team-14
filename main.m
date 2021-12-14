@@ -86,11 +86,17 @@ while true
         end
     end
     
+    if moveNum == 1
+        % determine changed character: INCOMPLETE
+        %     diyanko 
+        % reset myChar to appropriate char
+        
+    end
+    
     % increment move counter to account for player move
     moveNum = moveNum + 1;
 
-    % determine changed character: INCOMPLETE
-    %     diyanko 
+    
     
 
     % update board model with new character: COMPLETE
