@@ -61,7 +61,7 @@ board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
 while true
     setdobotposition(dobot, homepos, arduinoObj);
     pause(1);
-    disp('WAIT')
+    
     img1 = takePicture();
     img1fixed = cropImage(img1, 15);
     img1fixed = subtractReference(img1fixed, reference);
@@ -70,7 +70,6 @@ while true
     img1fixed = imadjust(img1fixed, [.7 1], []);
     
     while true
-        disp('play now')
         pause(5);
         
         img2 = takePicture();

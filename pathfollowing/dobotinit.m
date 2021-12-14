@@ -73,6 +73,6 @@ dobot.J3lim = [-20 90];
 %% serial connection definition
 
 serialportlist("available")'
-arduinoObj = serialport("COM3",9600)
+arduinoObj = serialport("COM7",9600)
 configureTerminator(arduinoObj,hex2dec('5A')); % Data package ends with byte 0x5A
 

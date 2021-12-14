@@ -9,7 +9,7 @@ if exist('arduinoObj') == 0
     dobotinit	
 end
 
-home = [0;10;0];
+home = [90;0;0];
 pause(1)
 setdobotangles(q2ang(home),arduinoObj)
 
@@ -19,7 +19,7 @@ dobot=fwdkiniter(dobot);
 homepos = dobot.T(1:3,4);
 pause(1)
 %dobot = setdobotposition(dobot, homepos, arduinoObj);
-bc = [185;0;20];
+bc = [185;0;5];
 dobot = setdobotposition(dobot, bc, arduinoObj);
 % lineS = [00;-40;0];
 % lineE = [00;40;0];
