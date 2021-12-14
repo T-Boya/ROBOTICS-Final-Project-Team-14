@@ -31,7 +31,9 @@ pause(1)
 setdobotposition(dobot, homepos, arduinoObj); %move to home pos (should already be there
 pause(3)
 if exist('reference', 'var') == 0	
+    disp('REF IMG')
     reference = takePicture();	
+    reference = cropImage(reference, 10);
 end
 % table height value (calibrate these vales before starting
 zPaper = 4; % height of the table surface, must be determined during cell setup
@@ -63,7 +65,7 @@ while true
     pause(3);
     disp('WAIT')
     img1 = takePicture();
-    img1fixed = cropImage(img1, 15);
+    img1fixed = cropImage(img1, 10);
     img1fixed = subtractReference(img1fixed, reference);
     img1fixed = straightenGrid(img1fixed);
     img1fixed = removeWhitespace(img1fixed); 
@@ -74,14 +76,14 @@ while true
         pause(5);
         
         img2 = takePicture();
-        img2fixed = cropImage(img2, 15);
+        img2fixed = cropImage(img2, 10);
         img2fixed = subtractReference(img2fixed, reference);
         img2fixed = straightenGrid(img2fixed);
         img2fixed = removeWhitespace(img2fixed); 
         img2fixed = imadjust(img2fixed, [0.7 1], []);
 
         [row, col] = findChangedCell(img1fixed, img2fixed);
-        if sum([row col]) ~= 0
+        if sum([row col]) ~= 0 && board(row, col) == '_'
             changedCell = getCell(img2fixed, row, col);
             newImage = img2fixed;
             break
@@ -123,7 +125,7 @@ while true
          break; end
     
     % decide on best move: COMPLETE
-    [row, col] == choosemove(board, myChar); 
+    [row, col] = choosemove(board, myChar); 
     %[row,col] = chooseMoveRandom(board);
     if row < 0
         break; end
@@ -160,7 +162,8 @@ while true
     moveNum = moveNum + 1;
 end
 
-
+setdobotposition(dobot, homepos, arduinoObj);
+disp('End of Game')
 % key performance parameters
 % ensure images are represented by 1x1 array, otherwise below fails
 % shapeStats = zeros(9, 3);
