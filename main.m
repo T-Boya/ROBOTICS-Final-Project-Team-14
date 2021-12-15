@@ -87,10 +87,11 @@ while true
     end
     
     if moveNum == 1
-        % determine changed character: INCOMPLETE
-        %     diyanko 
-        % reset myChar to appropriate char
-        
+        opponentChar = detectCharacter(changedCell)
+        if opponentChar == 'X'
+            myChar = 'O'
+        else
+            myChar = 'X'   
     end
     
     % increment move counter to account for player move

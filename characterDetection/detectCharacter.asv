@@ -1,15 +1,19 @@
-%% Creating reference images
-
-
 %%
 clear all; close all; clc;
-function char = detectCharacter(img)
-    input = imadjust(img,[0.5 0.9]);
-    input = RemoveWhiteSpace(input);
-    input = imresize(input,[500 500]);
-    imshow(input)
-    
-end
+function char = detectCharacter(cell)
+    o_ref = imread('o_ref.jpg');
+    x_ref = imread('x_ref.jpg');
+    cell = RemoveWhiteSpace(cell);
+    cell = imresize(cell,[500 500]);
+    imshow(cell);
+    ifx = immse(cell,o_ref)
+    ifo = immse(cell,x_ref)
+    if ifx>ifo
+        char = 'X'
+    else
+        char = 'O'
+    end
+
 
 %%
 clear all; close all; clc
