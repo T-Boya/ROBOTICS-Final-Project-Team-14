@@ -1,10 +1,12 @@
 %% Create Reference Images
+clear all; close all; clc
+x_ref = zeros(500);
+index = 1;
 
+%% Repeat
 clc;
 x_ref_full = imcrop(getImage('x_ref_full_2.jpg'));
 x_ref_full = removeWhitespace(x_ref_full); % The one we wrote
-% x_ref = zeros(500);
-index = 1;
 for i=1:3
     for j=1:3
         cell = getCell(x_ref_full,i,j);
