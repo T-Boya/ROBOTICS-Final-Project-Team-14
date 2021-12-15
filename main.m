@@ -55,11 +55,7 @@ opponentChar = 'X';
 moveNum = 1;
 board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
 
-% set imgNew to image from webcam: COMPLETE (UNTESTED CAMERA IMAGE
-% FETCHING) commented out for testing w/o camera
-% imgNew = getCameraImage();
-% imgOriginal = imgNew;
-% opponentChar = 'A';
+% Wait for player move and determine location of move made
 while true
     setdobotposition(dobot, homepos, arduinoObj);
     pause(3);
@@ -90,49 +86,38 @@ while true
         end
     end
     
-    % check for changes: COMPLETE (UNTESTED CAMERA IMAGE FETCHING) 
+    if moveNum == 1
+        % determine changed character: INCOMPLETE
+        %     diyanko 
+        % reset myChar to appropriate char
+        
+    end
     
-    %imgNew = getCameraImage();
-    %[row, col] = findChangedCellFinal(imgOld, imgNew);
-    %[row, col] = findChangedCellmanual; %function asks for manual input of location, used for testing
-    
-    if row == 0
-        continue; end
+    % increment move counter to account for player move
     moveNum = moveNum + 1;
 
-    % determine changed character: INCOMPLETE
-    % if opponentChar == 'A'
-    %     opponentChar = getCell(imgNew, row, col);
-
-
-    %     diyanko 
-            
-
-    %     myChar = assignOpponent(opponentChar);
-    % end
     
-    %commented out as this is determined befor ethe loop
-    %myChar = 'X';
-    %opponentChar = 'O';
+    
 
     % update board model with new character: COMPLETE
-    board(row, col) = opponentChar
+    board(row, col) = opponentChar;
+    disp(board);
 
-    % if lost end: COMPLETE 
-    % % % no function 'evaluate score' % % %
+    % if lost end
      score = evaluateScore(board, myChar);
-     if score == -10
+     if score == -10 || score == 10
          break; end
     
     % decide on best move: COMPLETE
     [row, col] = choosemove(board, myChar); 
-    %[row,col] = chooseMoveRandom(board);
+    
+    % if move made wins game, end
     if row < 0
         break; end
     
    
     
-    % draw character: COMPLETE
+    % draw character
     if myChar == 'X'
         drawX(dobot, arduinoObj, cellCenters(row,col,:), 9, 5);
         pause(.5)
@@ -141,59 +126,24 @@ while true
         pause(.5)
     end
     
-    % update board model: COMPLETE
-    board(row, col) = myChar
+    % update board model
+    board(row, col) = myChar;
+    disp(board)
     
-    % f this was the eighth or ninth move or game won, end: COMPLETE
-    % no evaluate score function
+    % if this was the eighth or ninth move or game won, end
     score = evaluateScore(board, myChar);
     if moveNum == 8 || moveNum == 9 || score == 10
         break; end
-    % redundant game-ending code
+    
+    % redundant game-ending code (if no move can be made, end game)
     if row < 0
         break
-    end
+    end    
     
-    % move to zero position: COMPLETE
-    %imgOld = imgNew;
-    
-    
-    % increment moveNum
+    % increment moveNum to account for robot move
     moveNum = moveNum + 1;
 end
 
+% move to zero position
 setdobotposition(dobot, homepos, arduinoObj);
 disp('End of Game')
-% key performance parameters
-% ensure images are represented by 1x1 array, otherwise below fails
-% shapeStats = zeros(9, 3);
-% imgFinal = getCameraImage();
-% for i = 1:9
-    % shape opacity
-%     cellOriginal = getCell(imgOriginal, mod(i, 3), floor(i/3));
-%     cellModified = getCell(imgFinal, mod(i, 3), floor(i/3));
-    % make cells same size
-    % mismatchedDimensions = [ size(cellOriginal); size(cellModified) ];
-    % dimensions = [ min(mismatchedDimensions(:,1)) min(mismatchedDimensions(:,2)) ];
-%     dimensions = [ 720, 720 ];
-%     cellOriginal = imresize(cellOriginal, dimensions);
-%     cellModified = imresize(cellModified, dimensions);
-%     modifiedVals = zeros(dimensions(1)*dimensions(2), 1);
-%     for j = 1:dimensions(1)
-%         for k = 1:dimensions(2)
-%             if cellOriginal(j, k) ~= cellModified(j,k)
-%                 modifiedVals = cellModified(dimensions(1)*(j-1) + k);
-%             end
-%         end
-%     end
-%     modifiedVals = modifiedVals(1:find(modifiedVals == 0, 1, 'first'));
-%     shapeStats(i,:) = [mean(modifiedVals) range(modifiedVals) std(modifiedVals)];
-% end
-% % weaknesses: fails when shadows change
-
-
-% Manually entering the user input data of the row and column
-function [r,c] = findChangedCellmanual
-    r = input('row');
-    c = input('column');
-end
