@@ -1,3 +1,6 @@
+%% Creating reference images
+
+
 %%
 clear all; close all; clc;
 function char = detectCharacter(img)
