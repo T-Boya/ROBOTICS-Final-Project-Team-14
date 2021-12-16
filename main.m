@@ -45,8 +45,7 @@ bc = [xBoard;yBoard;zPaper];
 pause(1)
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
 cvo = 0*[-2;-2;-6;-6];
-[cellCenters, cornerLoc] = drawBoard(dobot, ardui
-noObj, bc+[0;0;0], cvo, 3*25);
+[cellCenters, cornerLoc] = drawBoard(dobot, arduinoObj, bc+[0;0;0], cvo, 3*25);
 setdobotposition(dobot, bc+[0;0;20], arduinoObj);
 
 % charater recognition, needs to be added here
