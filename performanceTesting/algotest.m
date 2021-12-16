@@ -24,7 +24,7 @@ end
 
 %% aggressive game simulation
 close all; clear all; clc
-board = ['_' '_' '_'; '_' '_' '_'; '_' '_' '_'];
+board = ['O' '_' 'X'; 'X' '_' '_'; 'X' 'O' 'O'];
 for i = 1:9
     if mod(i, 2) == 0
         char = 'O';

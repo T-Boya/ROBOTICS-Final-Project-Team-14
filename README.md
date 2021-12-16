@@ -2,3 +2,4 @@
 
 ## Running Instructions
 Run main.m to execute the program. All other functions are either helper functions or performance assessment functions. Ensure all folders and subfolders are added to path.
+The IBVS code can be found in boardDetectionAndExtraction/IBVS
