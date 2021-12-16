@@ -1,21 +1,28 @@
-%% Create Reference Images
+%% Creating a Reference Image
 
-clc;
-x_ref_full = imcrop(getImage('x_ref_full_2.jpg'));
-x_ref_full = removeWhitespace(x_ref_full); % The one we wrote
-% x_ref = zeros(500);
+%% Initial
+clear all; close all; clc
+ref = zeros(500);
 index = 1;
+
+%% Repeat
+clc;
+ref_full = imcrop(getImage('o_ref_full.jpg'));
+ref_full = removeWhitespace(ref_full); % The one we wrote
 for i=1:3
     for j=1:3
-        cell = getCell(x_ref_full,i,j);
+        cell = getCell(ref_full,i,j);
         cell = imadjust(cell,[0.3 0.5]);
         cell = RemoveWhiteSpace(cell);
         cell = imresize(cell,[500 500]);
-        x_ref = x_ref+cell;
+        ref = ref+cell;
         imshow(cell);
         pause(1);
         index = index+1;
     end
 end
 
-imshow(x_ref/(index-1));
+imshow(ref/(index-1));
+
+%% Final
+imsave;

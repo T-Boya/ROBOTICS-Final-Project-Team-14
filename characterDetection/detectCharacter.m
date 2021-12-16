@@ -1,11 +1,20 @@
 %%
 clear all; close all; clc;
-function char = detectCharacter(img)
-    input = imadjust(img,[0.5 0.9]);
-    input = RemoveWhiteSpace(input);
-    input = imresize(input,[500 500]);
-    imshow(input)
-    
+function char = detectCharacter(cell)
+    o_ref = imread('o_ref.jpg');
+    x_ref = imread('x_ref.jpg');
+    cell = RemoveWhiteSpace(cell);
+    cell = imresize(cell,[500 500]);
+    imshow(cell);
+    imshow(cell);
+    cell = uint8(cell);
+    ifx = immse(cell,x_ref)
+    ifo = immse(cell,o_ref)
+    if ifx>ifo
+        char = 'X'
+    else
+        char = 'O'
+    end
 end
 
 %%
@@ -50,7 +59,7 @@ figure
 imshow(o_ref)
 
 o = im2gray(imread('o.jpg'));
-o = imadjust(o,[0.5 0.9]);
+o = imadjust(o,[0.25 0.4]);
 o = RemoveWhiteSpace(o);
 o = imresize(o,[500 500]);
 figure
