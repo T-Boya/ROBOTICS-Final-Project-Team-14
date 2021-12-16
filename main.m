@@ -87,11 +87,11 @@ while true
     end
     
     if moveNum == 1
-        opponentChar = detectCharacter(changedCell)
+        opponentChar = detectCharacter(changedCell);
         if opponentChar == 'X'
-            myChar = 'O'
+            myChar = 'O';
         else
-            myChar = 'X'   
+            myChar = 'X';   
     end
     
     % increment move counter to account for player move

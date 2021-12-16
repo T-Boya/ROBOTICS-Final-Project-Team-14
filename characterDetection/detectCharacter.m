@@ -1,5 +1,3 @@
-%%
-clear all; close all; clc;
 function char = detectCharacter(cell)
     o_ref = imread('o_ref.jpg');
     x_ref = imread('x_ref.jpg');
@@ -8,12 +6,12 @@ function char = detectCharacter(cell)
     imshow(cell);
     imshow(cell);
     cell = uint8(cell);
-    ifx = immse(cell,x_ref)
-    ifo = immse(cell,o_ref)
+    ifx = immse(cell,x_ref);
+    ifo = immse(cell,o_ref);
     if ifx>ifo
-        char = 'X'
+        char = 'X';
     else
-        char = 'O'
+        char = 'O';
     end
 end
 
