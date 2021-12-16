@@ -92,6 +92,7 @@ while true
             myChar = 'O';
         else
             myChar = 'X';   
+        end
     end
     
     % increment move counter to account for player move
